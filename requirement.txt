@@ -1,0 +1,5 @@
+# Editable Git install with no remote (curses-pong==1.0)
+-e /home/zazbone/Documents/code/python/pong
+pynput==1.6.8
+python-xlib==0.27
+six==1.15.0

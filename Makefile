@@ -1,5 +1,6 @@
 py = venv/bin/python
 pip = venv/bin/pip
+venv = venv/bin/activate
 
 
 run:
@@ -13,8 +14,19 @@ install: inst-dep
 inst-dep:
 	$(pip) install -r requirement.txt
 
+test:
+	$(py) test.py
+
 freeze:
-	$(pip) freeze --all > requirement.txt
+	$(pip) freeze > requirement.txt
 
 py:
 	$(py)
+
+venv:
+	source $(venv)
+
+count:
+	git ls-files | xargs wc -l
+
+FORCE:
