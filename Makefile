@@ -23,7 +23,7 @@ freeze:
 py:
 	$(py)
 
-venv:
+venv: FORCE
 	source $(venv)
 
 count:
