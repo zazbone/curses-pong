@@ -41,7 +41,7 @@ class Game:
         # Ball x vertical y horizontal
         self.bpos_x = self.X_MAX // 2
         self.bpos_y = 10
-        self.bspeed_x = 0  # 2
+        self.bspeed_x = 2
         self.bspeed_y = 4
 
         # Player height
@@ -82,14 +82,14 @@ class Game:
             self.bpos_x = clamp(1, self.bpos_x, self.X_MAX - 1)
             self.bspeed_x *= -1
         if self.bpos_y < 1:
-            if self.bpos_y in around(self.player1, self.bar_height):
+            if self.bpos_x in around(self.player1, self.bar_height):
                 self.bpos_y = 1
                 self.bspeed_y *= -1
             else:
                 self.win = 2
-        elif self.bpos_y > self.Y_MAX:
-            if self.bpos_y not in around(self.player2, self.bar_height):
-                self.bpos_y = self.Y_MAX
+        elif self.bpos_y > self.Y_MAX - 2:
+            if self.bpos_x in around(self.player2, self.bar_height):
+                self.bpos_y = self.Y_MAX - 2
                 self.bspeed_y *= -1
             else:
                 self.win = 1
